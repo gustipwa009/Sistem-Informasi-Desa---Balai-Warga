@@ -34,16 +34,16 @@ const Dashboard: React.FC = () => {
   return (
     <div className="space-y-8 animate-fade-in pb-10">
       {/* Header Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-pendopo-900 to-pendopo-800 rounded-3xl p-8 shadow-xl text-white">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4"></div>
+      <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 shadow-xl text-white">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4"></div>
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <div>
             <h2 className="text-4xl font-serif font-bold mb-2">Sugeng Rawuh</h2>
-            <p className="text-pendopo-100 text-lg opacity-90">Sistem Informasi Manajemen Desa Modern</p>
+            <p className="text-blue-100 text-lg opacity-90">Sistem Informasi Manajemen Desa Modern</p>
           </div>
           <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl max-w-lg">
             <div className="flex gap-3">
-              <Sparkles className="w-5 h-5 text-pendopo-200 flex-shrink-0 mt-1" />
+              <Sparkles className="w-5 h-5 text-sky-200 flex-shrink-0 mt-1" />
               <p className="text-sm italic font-light leading-relaxed">
                 "{wiseQuote}"
               </p>
