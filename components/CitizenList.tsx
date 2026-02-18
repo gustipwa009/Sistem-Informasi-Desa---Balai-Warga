@@ -3,12 +3,66 @@ import { Citizen } from '../types';
 import { Search, Filter, Plus, MoreHorizontal } from 'lucide-react';
 
 const MOCK_CITIZENS: Citizen[] = [
-  { id: '1', nik: '3302150101850001', name: 'Budi Santoso', gender: 'Laki-laki', rt: '01', rw: '01', status: 'Tetap', job: 'Petani' },
-  { id: '2', nik: '3302150505900002', name: 'Siti Aminah', gender: 'Perempuan', rt: '01', rw: '01', status: 'Tetap', job: 'Guru' },
-  { id: '3', nik: '3302151212950003', name: 'Joko Widodo', gender: 'Laki-laki', rt: '02', rw: '01', status: 'Kontrak', job: 'Wiraswasta' },
-  { id: '4', nik: '3302152002880004', name: 'Rina Wati', gender: 'Perempuan', rt: '02', rw: '01', status: 'Sementara', job: 'Mahasiswa' },
-  { id: '5', nik: '3302151010800005', name: 'Slamet Rahardjo', gender: 'Laki-laki', rt: '03', rw: '02', status: 'Tetap', job: 'PNS' },
-  { id: '6', nik: '3302151506920006', name: 'Dewi Sartika', gender: 'Perempuan', rt: '03', rw: '02', status: 'Tetap', job: 'Ibu Rumah Tangga' },
+  { 
+    id: '1', 
+    nik: '3302150101850001', 
+    name: 'Budi Santoso', 
+    gender: 'Laki-laki', 
+    rt: '01', rw: '01', 
+    status: 'Tetap', 
+    job: 'Petani',
+    photoUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+  },
+  { 
+    id: '2', 
+    nik: '3302150505900002', 
+    name: 'Siti Aminah', 
+    gender: 'Perempuan', 
+    rt: '01', rw: '01', 
+    status: 'Tetap', 
+    job: 'Guru',
+    photoUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+  },
+  { 
+    id: '3', 
+    nik: '3302151212950003', 
+    name: 'Joko Widodo', 
+    gender: 'Laki-laki', 
+    rt: '02', rw: '01', 
+    status: 'Kontrak', 
+    job: 'Wiraswasta',
+    photoUrl: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+  },
+  { 
+    id: '4', 
+    nik: '3302152002880004', 
+    name: 'Rina Wati', 
+    gender: 'Perempuan', 
+    rt: '02', rw: '01', 
+    status: 'Sementara', 
+    job: 'Mahasiswa',
+    photoUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+  },
+  { 
+    id: '5', 
+    nik: '3302151010800005', 
+    name: 'Slamet Rahardjo', 
+    gender: 'Laki-laki', 
+    rt: '03', rw: '02', 
+    status: 'Tetap', 
+    job: 'PNS',
+    photoUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+  },
+  { 
+    id: '6', 
+    nik: '3302151506920006', 
+    name: 'Dewi Sartika', 
+    gender: 'Perempuan', 
+    rt: '03', rw: '02', 
+    status: 'Tetap', 
+    job: 'Ibu Rumah Tangga',
+    photoUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+  },
 ];
 
 const CitizenList: React.FC = () => {
@@ -68,7 +122,7 @@ const CitizenList: React.FC = () => {
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-slate-50/80 border-b border-slate-100">
-                <th className="px-6 py-5 text-xs font-bold text-slate-400 uppercase tracking-wider">Nama Lengkap</th>
+                <th className="px-6 py-5 text-xs font-bold text-slate-400 uppercase tracking-wider">Warga</th>
                 <th className="px-6 py-5 text-xs font-bold text-slate-400 uppercase tracking-wider">NIK</th>
                 <th className="px-6 py-5 text-xs font-bold text-slate-400 uppercase tracking-wider">L/P</th>
                 <th className="px-6 py-5 text-xs font-bold text-slate-400 uppercase tracking-wider">Domisili</th>
@@ -82,7 +136,14 @@ const CitizenList: React.FC = () => {
                 filteredCitizens.map((citizen) => (
                   <tr key={citizen.id} className="hover:bg-blue-50/30 transition-colors group">
                     <td className="px-6 py-4">
-                      <div className="font-semibold text-slate-800">{citizen.name}</div>
+                      <div className="flex items-center gap-3">
+                        <img 
+                          src={citizen.photoUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(citizen.name)}&background=random`} 
+                          alt={citizen.name} 
+                          className="w-10 h-10 rounded-full object-cover border border-slate-200 shadow-sm"
+                        />
+                        <div className="font-semibold text-slate-800">{citizen.name}</div>
+                      </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="font-mono text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-md w-fit">{citizen.nik}</div>

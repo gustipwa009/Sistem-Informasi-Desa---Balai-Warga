@@ -7,6 +7,7 @@ export interface Citizen {
   rw: string;
   status: 'Tetap' | 'Kontrak' | 'Sementara';
   job: string;
+  photoUrl?: string;
 }
 
 export interface LetterRequest {

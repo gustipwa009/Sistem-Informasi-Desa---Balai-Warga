@@ -1,6 +1,6 @@
 import React from 'react';
 import { ViewState } from '../types';
-import { Home, Users, FileText, Bell, LogOut, Mountain } from 'lucide-react';
+import { Home, Users, FileText, Bell, LogOut } from 'lucide-react';
 
 interface SidebarProps {
   currentView: ViewState;
@@ -37,9 +37,14 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, isOpen, on
       >
         <div className="flex flex-col h-full p-4">
           {/* Logo Area */}
-          <div className="px-4 py-6 mb-6 flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-pendopo-500 to-pendopo-700 rounded-xl text-white flex items-center justify-center shadow-lg shadow-pendopo-900/50">
-              <Mountain size={20} />
+          <div className="px-4 py-6 mb-6 flex items-center space-x-4">
+            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-pendopo-900/50 overflow-hidden">
+               {/* Icon Gambar Balai Desa / Logo */}
+              <img 
+                src="https://cdn-icons-png.flaticon.com/512/1909/1909693.png" 
+                alt="Logo Desa" 
+                className="w-8 h-8 object-contain"
+              />
             </div>
             <div>
               <h1 className="font-serif font-bold text-xl text-white tracking-wide">Balai Desa</h1>
@@ -77,19 +82,30 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, isOpen, on
             })}
           </nav>
 
-          {/* Footer */}
-          <div className="mt-auto pt-6 border-t border-white/10">
-            <button className="flex items-center space-x-3 text-slate-400 hover:text-white hover:bg-white/5 w-full px-4 py-3 rounded-2xl transition-all">
-              <LogOut size={20} />
+          {/* User Profile & Footer */}
+          <div className="mt-auto pt-4 border-t border-white/10">
+            {/* User Profile Card */}
+            <div className="flex items-center gap-3 px-4 py-3 mb-4 rounded-2xl bg-white/5 border border-white/5 mx-2">
+              <img 
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt="Pak Carik"
+                className="w-10 h-10 rounded-full border-2 border-pendopo-500"
+              />
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-bold text-white truncate">Bambang S.</p>
+                <p className="text-xs text-slate-400 truncate">Sekretaris Desa</p>
+              </div>
+            </div>
+
+            <button className="flex items-center space-x-3 text-slate-400 hover:text-red-400 hover:bg-red-500/10 w-full px-4 py-3 rounded-2xl transition-all mb-4 group">
+              <LogOut size={20} className="group-hover:text-red-400" />
               <span className="font-medium text-sm">Keluar</span>
             </button>
-            <div className="mt-6 px-4">
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/5">
-                <p className="text-xs text-slate-400 text-center leading-relaxed">
-                  &copy; 2024 Desa Makmur<br/>
-                  <span className="opacity-50">v2.0 Modern UI</span>
-                </p>
-              </div>
+            
+            <div className="px-4 pb-2">
+               <p className="text-xs text-slate-600 text-center">
+                  &copy; 2024 Desa Makmur v2.1
+               </p>
             </div>
           </div>
         </div>
